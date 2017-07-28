@@ -100,6 +100,29 @@ public class InvoiceApplication {
 
 		//System.out.println("Program Exiting");	
 	}
+	public void printRecipt(ArrayList<Item> inArray){
+		System.out.println("Would you like me to format the recipt in a table? (y)es or (n)o ");
+		Scanner newScanner = new Scanner(System.in);
+		String response = null;
+		
+		boolean tempBool = true;
+		while(tempBool){
+			if(newScanner.hasNext()){
+				String tempResponse = newScanner.nextLine();
+				response = tempResponse;
+				tempBool = false;
+				
+			}else{
+				System.out.println("Error, you need to enter (y)es or (n)o");
+				newScanner.next();
+			}
+		}
+		if(response.equalsIgnoreCase("y")){
+			//print out a table formatted recipt
+		}else{
+			//print out a regular one
+		}
+	}
 
 
 }
