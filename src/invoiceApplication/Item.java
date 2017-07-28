@@ -59,7 +59,7 @@ public class Item {
 		return taxDue+itemPrice;
 	}
 	
-	
+	//this method will print the item out including which itemNumber it is, the description, and the price
 	public void printItem(){
 		String itemNumberString = EnglishNumberToWords.convert(Long.valueOf(itemNumber));  //use EnglishNumberToWords that i found online to come up with the english translation of an int
 		String output = String.format("Item %s Description: %s | Price: $%.2f",itemNumberString,itemDescription,itemPrice);
