@@ -30,7 +30,7 @@ public class InvoiceApplication {
 		Boolean tempTry = true;
 		while(tempTry){
 			tempTry = true;
-			
+
 			if (scan.hasNextDouble()){
 				double inTaxRate = scan.nextDouble();
 				taxRate = inTaxRate/100;
@@ -54,10 +54,10 @@ public class InvoiceApplication {
 			double itemPrice = 0.0;
 			boolean tempTry2=true;
 			while (tempTry2){
-				if(scan.hasNextInt()){
-				double tempItemPrice = scan.nextDouble();
-				itemPrice = tempItemPrice;
-				tempTry2 = false;
+				if(scan.hasNextDouble()){
+					double tempItemPrice = scan.nextDouble();
+					itemPrice = tempItemPrice;
+					tempTry2 = false;
 				}
 				else{
 					System.out.println("You need to enter an actuall price for the item.  Try Again: ");
@@ -73,7 +73,7 @@ public class InvoiceApplication {
 			itemList.add(newItem);
 
 
-			System.out.println("Would you like to add another item? (y)es or (n)o");
+			System.out.println("Would you like to add another item? press (y)es to enter another item and any other key to continue");
 			resp = scan.next();
 
 
@@ -100,18 +100,19 @@ public class InvoiceApplication {
 
 		//System.out.println("Program Exiting");	
 	}
-	public void printRecipt(ArrayList<Item> inArray){
+	//takes in an arrayList of items and allows you to select how you want to print them
+	/*	public void printRecipt(ArrayList<Item> inArray){
 		System.out.println("Would you like me to format the recipt in a table? (y)es or (n)o ");
 		Scanner newScanner = new Scanner(System.in);
 		String response = null;
-		
+
 		boolean tempBool = true;
 		while(tempBool){
 			if(newScanner.hasNext()){
 				String tempResponse = newScanner.nextLine();
 				response = tempResponse;
 				tempBool = false;
-				
+
 			}else{
 				System.out.println("Error, you need to enter (y)es or (n)o");
 				newScanner.next();
@@ -121,8 +122,10 @@ public class InvoiceApplication {
 			//print out a table formatted recipt
 		}else{
 			//print out a regular one
+
 		}
 	}
+	 */
 
 
 }

@@ -62,7 +62,7 @@ public class Item {
 	//this method will print the item out including which itemNumber it is, the description, and the price
 	public void printItem(){
 		String itemNumberString = EnglishNumberToWords.convert(Long.valueOf(itemNumber));  //use EnglishNumberToWords that i found online to come up with the english translation of an int
-		String output = String.format("Item %s Description: %-10s | Price: $%-10.2f",itemNumberString,itemDescription,itemPrice);
+		String output = String.format("Item %-5s | Description: %-20s | Price: $%-10.2f",itemNumberString,itemDescription,itemPrice);
 		System.out.println(output);
 		//System.out.println();
 	}
