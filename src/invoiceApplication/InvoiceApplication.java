@@ -12,7 +12,7 @@ public class InvoiceApplication {
 	 * Then the application will ask if they want to add another item.  As long as they want to we will add items.
 	 * Once the user does not want to continue the application will process the items and print each item, item price and the final amount due and tax due
 	 * 
-	 * @param args
+	 * 
 	 */
 
 	public static void main(String[] args) {
@@ -28,19 +28,12 @@ public class InvoiceApplication {
 
 		System.out.println("First, tell me what the going tax rate is for this sale.  tell me as a %");
 		Boolean tempTry = true;
-		while(tempTry){
-			tempTry = true;
 
-			if (scan.hasNextDouble()){
-				double inTaxRate = scan.nextDouble();
-				taxRate = inTaxRate/100;
-				tempTry = false;
-			}
-			else{
-				System.out.println("You did not enter a valid tax rate.  Please enter a tax rate ex: (6.01 or 5 or .77).  Try Again: ");
-				scan.next();			
-			}
+		while(!scan.hasNextDouble()){
+			System.out.println("You did not enter a valid tax rate.  Please enter a tax rate ex: (6.01 or 5 or .77).  Try Again: ");
+			scan.next();
 		}
+		taxRate = scan.nextDouble()/100;
 
 		//keep asking for item descriptions and prices until the user says they dont want to continue
 		do{
@@ -53,19 +46,13 @@ public class InvoiceApplication {
 			System.out.println("Please enter a product price: ");
 			double itemPrice = 0.0;
 			boolean tempTry2=true;
-			while (tempTry2){
-				if(scan.hasNextDouble()){
-					double tempItemPrice = scan.nextDouble();
-					itemPrice = tempItemPrice;
-					tempTry2 = false;
-				}
-				else{
-					System.out.println("You need to enter an actuall price for the item.  Try Again: ");
-					scan.next();
-				}
-
+		
+			while (!scan.hasNextDouble()){
+				System.out.println("You need to enter an actuall price for the item.  Try Again: ");
+				scan.next();
 			}
-
+			itemPrice = scan.nextDouble();
+			
 			double taxDue = (taxRate)*itemPrice;
 
 			Item newItem = new Item(itemCount,itemDescription, itemPrice, taxDue);
@@ -100,32 +87,7 @@ public class InvoiceApplication {
 
 		//System.out.println("Program Exiting");	
 	}
-	//takes in an arrayList of items and allows you to select how you want to print them
-	/*	public void printRecipt(ArrayList<Item> inArray){
-		System.out.println("Would you like me to format the recipt in a table? (y)es or (n)o ");
-		Scanner newScanner = new Scanner(System.in);
-		String response = null;
 
-		boolean tempBool = true;
-		while(tempBool){
-			if(newScanner.hasNext()){
-				String tempResponse = newScanner.nextLine();
-				response = tempResponse;
-				tempBool = false;
-
-			}else{
-				System.out.println("Error, you need to enter (y)es or (n)o");
-				newScanner.next();
-			}
-		}
-		if(response.equalsIgnoreCase("y")){
-			//print out a table formatted recipt
-		}else{
-			//print out a regular one
-
-		}
-	}
-	 */
 
 
 }
